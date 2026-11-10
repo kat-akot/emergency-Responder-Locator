@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f8f7">
+  <meta name="description" content="Find nearby emergency responders and essential services.">
+  <title>Responder Locator</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#home" aria-label="Responder Locator home">
+      <span class="brand-mark" aria-hidden="true">＋</span>
+      <span>Responder<span class="brand-light">Locator</span></span>
+    </a>
+    <nav class="main-nav" aria-label="Main navigation">
+      <a class="nav-link active" href="#find">Find help</a>
+      <a class="nav-link" href="#about">About</a>
+    </nav>
+    <a class="emergency-link" href="tel:911"><span class="phone-icon" aria-hidden="true">☎</span> Emergency <strong>911</strong></a>
+  </header>
+
+  <main id="home">
+    <section class="intro" id="find">
+      <div class="intro-copy">
+        <p class="eyebrow"><span class="live-dot"></span> COMMUNITY RESPONSE NETWORK</p>
+        <h1>Help is closer<br>than you think.</h1>
+        <p class="intro-text">Find nearby emergency services and community responders. If you’re in immediate danger, call your local emergency number.</p>
+      </div>
+      <div class="search-card" role="search">
+        <label for="location-input">Where do you need help?</label>
+        <div class="search-row">
+          <span class="pin-icon" aria-hidden="true">⌖</span>
+          <input id="location-input" type="search" placeholder="Enter a city or ZIP code" autocomplete="postal-code">
+          <button id="search-button" class="search-button" type="button">Search <span aria-hidden="true">→</span></button>
+        </div>
+        <button id="locate-button" class="locate-button" type="button"><span aria-hidden="true">◎</span> Use my current location</button>
+        <p id="status-message" class="status-message" aria-live="polite">Showing sample locations near your area</p>
+      </div>
+    </section>
+
+    <section class="directory" aria-label="Nearby responders">
+      <div class="directory-heading">
+        <div>
+          <p class="eyebrow">LOCAL DIRECTORY</p>
+          <h2>Nearby support</h2>
+        </div>
+        <span id="result-count" class="result-count">4 services</span>
+      </div>
+      <div class="filter-row" role="group" aria-label="Filter by service type">
+        <button class="filter-chip selected" data-filter="all" type="button" aria-pressed="true">All services</button>
+        <button class="filter-chip" data-filter="medical" type="button" aria-pressed="false"><span class="chip-dot medical-dot"></span> Medical</button>
+        <button class="filter-chip" data-filter="fire" type="button" aria-pressed="false"><span class="chip-dot fire-dot"></span> Fire &amp; rescue</button>
+        <button class="filter-chip" data-filter="police" type="button" aria-pressed="false"><span class="chip-dot police-dot"></span> Police</button>
+        <button class="filter-chip" data-filter="community" type="button" aria-pressed="false"><span class="chip-dot community-dot"></span> Community</button>
+      </div>
+
+      <div class="results-layout">
+        <div class="responder-list" id="responder-list" aria-live="polite"></div>
+        <aside class="map-panel" aria-label="Illustrative map of nearby services">
+          <div class="map-label"><span class="map-live-dot"></span> AREA OVERVIEW <span class="demo-tag">DEMO</span></div>
+          <div class="map-art" aria-hidden="true">
+            <div class="map-grid"></div>
+            <div class="park park-one"></div><div class="park park-two"></div>
+            <div class="road road-a"></div><div class="road road-b"></div><div class="road road-c"></div><div class="road road-d"></div>
+            <div class="road-minor minor-a"></div><div class="road-minor minor-b"></div><div class="road-minor minor-c"></div>
+            <span class="map-label-text label-one">RIVER PARK</span><span class="map-label-text label-two">DOWNTOWN</span>
+            <button class="map-pin pin-med" aria-label="Medical service marker">✚</button>
+            <button class="map-pin pin-fire" aria-label="Fire service marker">✦</button>
+            <button class="map-pin pin-police" aria-label="Police service marker">★</button>
+            <button class="map-pin pin-community" aria-label="Community service marker">♥</button>
+            <span class="you-marker"><i></i></span>
+          </div>
+          <div class="map-legend"><span><i class="legend-dot medical-dot"></i> Medical</span><span><i class="legend-dot fire-dot"></i> Fire</span><span><i class="legend-dot police-dot"></i> Police</span><span><i class="legend-dot community-dot"></i> Community</span></div>
+          <p class="map-note">Illustrative map · locations shown are sample data</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="safety-note" id="about">
+      <span class="safety-icon" aria-hidden="true">i</span>
+      <p><strong>In an emergency?</strong> This directory is for finding local resources and is not an emergency dispatch service. Call <a href="tel:911">911</a> (or your local emergency number) for urgent help.</p>
+    </section>
+  </main>
+  <footer><span>Responder Locator</span><span>Connecting communities with support.</span></footer>
+</body>
+</html>
